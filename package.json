@@ -1,0 +1,8 @@
+{
+  "name": "youm-e-iqbal-registration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static vintage Iqbal Day competition registration landing page",
+  "scripts": { "build:css": "node tools_build_tailwind.cjs" },
+  "devDependencies": { "tailwindcss": "^4.1.10" }
+}
