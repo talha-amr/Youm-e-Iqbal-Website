@@ -98,10 +98,11 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 .text-link { display:inline-flex; gap:13px; align-items:center; font-size:10px; letter-spacing:.15em; font-weight:700; border-bottom:1px solid var(--ink); padding-bottom:5px; transition:gap .2s,color .2s; }
 .text-link:hover { color:var(--burgundy); gap:20px; }
 .hero-footnote { margin-top:42px; font-size:9px; font-weight:700; letter-spacing:.17em; color:#8b795c; }
-.asterisk { font-family:Georgia,serif; color:var(--gold); font-size:18px; vertical-align:middle; margin-right:5px; }
+.asterisk { width:14px; height:14px; color:var(--gold); stroke:#b28b56; vertical-align:middle; margin-right:5px; }
+.asterisk use { stroke:#b28b56; }
 .hero-art { position:relative; min-height:610px; height:100%; isolation:isolate; }
 .hero-art-ring { position:absolute; width:510px; height:510px; border-radius:50%; border:1px solid #8d73504d; top:50%; left:50%; transform:translate(-51%,-50%); box-shadow:0 0 0 21px #8d735013,0 0 0 22px #8d73502a,0 0 0 81px #8d735008; animation: ringBreath 10s ease-in-out infinite; }
-.hero-art-ring::before { content:"✳"; position:absolute; bottom:30px; left:30px; font-size:40px; color:var(--burgundy); opacity:.35; }
+.hero-art-ring::before { content:""; position:absolute; bottom:30px; left:30px; width:40px; height:40px; background:var(--burgundy); -webkit-clip-path:polygon(50% 0,56% 40%,79% 21%,60% 44%,100% 50%,60% 56%,79% 79%,56% 60%,50% 100%,44% 60%,21% 79%,40% 56%,0 50%,40% 44%,21% 21%,44% 40%); clip-path:polygon(50% 0,56% 40%,79% 21%,60% 44%,100% 50%,60% 56%,79% 79%,56% 60%,50% 100%,44% 60%,21% 79%,40% 56%,0 50%,40% 44%,21% 21%,44% 40%); opacity:.35; }
 .shaheen-art { position:absolute; z-index:1; width:295px; top:25px; right:-35px; mix-blend-mode:multiply; opacity:.73; transform:rotate(4deg); animation:eagleFloat 7.2s ease-in-out infinite; filter:sepia(.25) contrast(1.08); mask-image:radial-gradient(ellipse 56% 48% at 55% 52%,#000 35%,#000a 68%,transparent 100%); }
 .portrait-figure { position:absolute; z-index:2; width:315px; top:87px; left:50%; transform:translateX(-51%) rotate(-5deg); filter:drop-shadow(18px 22px 12px #47351e3b); animation:portraitDrop 1.2s .12s both; }
 .portrait-paper { padding:8px 8px 0; background:#e2d3b7; box-shadow:0 0 0 1px #927a566b; }
@@ -130,8 +131,10 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 
 /* Common section typography */
 .section-kicker { color:var(--burgundy); display:flex; align-items:center; gap:14px; font-size:10px; font-weight:700; letter-spacing:.23em; }
-.kicker-star { color:var(--gold); font-size:20px; line-height:1; }
-.light-kicker .kicker-star { color:#d3aa72; }
+.kicker-star { width:14px; height:14px; color:var(--gold); stroke:#b28b56; }
+.kicker-star use { stroke:#b28b56; }
+.light-kicker .kicker-star { color:#d3aa72; stroke:#d3aa72; }
+.light-kicker .kicker-star use { stroke:#d3aa72; }
 .kicker-index { margin-left:auto; color:#a08f77; }
 .light-kicker { color:#d3aa72; }
 .light-kicker .kicker-index { color:#c0b295a8; }
@@ -219,7 +222,7 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 
 /* Awards */
 .awards-section { background:var(--burgundy); padding:78px 0; color:#f7e4cb; position:relative; overflow:hidden; }
-.awards-section::after { content:"✳"; position:absolute; font-size:450px; line-height:1; color:#f6e4cf0a; top:-170px; right:20%; pointer-events:none; }
+.awards-section::after { content:""; position:absolute; top:-170px; right:20%; width:450px; height:450px; background:#f6e4cf0a; -webkit-clip-path:polygon(50% 0,56% 40%,79% 21%,60% 44%,100% 50%,60% 56%,79% 79%,56% 60%,50% 100%,44% 60%,21% 79%,40% 56%,0 50%,40% 44%,21% 21%,44% 40%); clip-path:polygon(50% 0,56% 40%,79% 21%,60% 44%,100% 50%,60% 56%,79% 79%,56% 60%,50% 100%,44% 60%,21% 79%,40% 56%,0 50%,40% 44%,21% 21%,44% 40%); pointer-events:none; }
 .awards-layout { position:relative; z-index:1; }
 .awards-icon-wrap { flex:0 0 auto; width:120px; height:120px; border:1px solid #e8d0b47d; border-radius:50%; display:grid; place-items:center; outline:1px solid #e8d0b450; outline-offset:9px; }
 .awards-icon-wrap .icon { width:54px; height:54px; color:#e9cf9c; stroke:#e9cf9c; stroke-width:1.1; }
