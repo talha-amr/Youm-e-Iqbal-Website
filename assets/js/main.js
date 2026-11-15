@@ -70,24 +70,34 @@
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   const icon = (name, extra = '') => `<svg class="icon ${extra}" aria-hidden="true"><use href="#icon-${name}"></use></svg>`;
   const esc = (str) => String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const registrationLink = (id, label, ariaLabel, className = 'card-register-button') => {
+    const link = config.formLinks?.[id];
+    if (typeof link === 'string' && /^https:\/\/docs\.google\.com\/forms\//i.test(link.trim())) {
+      return `<a class="${esc(className)}" href="${esc(link.trim())}" target="_blank" rel="noopener noreferrer" aria-label="${esc(ariaLabel)}">${esc(label)} ${icon('arrow-up')}</a>`;
+    }
+    return `<button class="${esc(className)}" type="button" disabled title="Registration link is not configured">${esc(label)} unavailable</button>`;
+  };
   const grid = $('#modulesGrid');
   const modal = $('#moduleModal');
   const modalContent = $('#modalContent');
-  const toast = $('#toast');
   let lastModalTrigger = null;
-  let toastTimeout;
   let activeFilter = 'all';
 
   function renderCards(filter = 'all') {
     const visible = modules.filter(m => filter === 'all' || m.category === filter || (filter === 'individual' && m.id === 'singing'));
-    grid.innerHTML = visible.map((m, index) => `
-      <article class="module-card" data-reveal data-module="${esc(m.id)}" style="--card-index:${index}">
-        <div class="card-top"><span class="card-number">${m.number}<i> / 06</i></span><div class="card-emblem">${icon(m.icon)}</div></div>
-        <div class="card-core"><div class="card-category">${esc(m.badge)}</div><h3>${esc(m.name)}</h3><p class="card-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p class="card-subtitle">${esc(m.title)}</p><p class="card-description">${esc(m.description)}</p></div>
-        <div class="card-details"><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>REGISTRATION FEE</small><strong>${esc(m.fee)}</strong></div></div>
-        <div class="card-actions"><button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button><button class="card-register-button" type="button" data-register="${esc(m.id)}" aria-label="Register for ${esc(m.title)}">REGISTER ${icon('arrow-up')}</button></div>
-      </article>
-    `).join('');
+    grid.innerHTML = visible.map((m, index) => {
+      const registerActions = m.id === 'singing'
+        ? `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrationLink('singingSolo', 'SOLO', `Register for the solo ${m.title}`)}${registrationLink('singingGroup', 'GROUP', `Register for the group ${m.title}`)}`
+        : `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrationLink(m.id, 'REGISTER', `Register for ${m.title}`)}`;
+      return `
+        <article class="module-card" data-reveal data-module="${esc(m.id)}" style="--card-index:${index}">
+          <div class="card-top"><span class="card-number">${m.number}<i> / 06</i></span><div class="card-emblem">${icon(m.icon)}</div></div>
+          <div class="card-core"><div class="card-category">${esc(m.badge)}</div><h3>${esc(m.name)}</h3><p class="card-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p class="card-subtitle">${esc(m.title)}</p><p class="card-description">${esc(m.description)}</p></div>
+          <div class="card-details"><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>REGISTRATION FEE</small><strong>${esc(m.fee)}</strong></div></div>
+          <div class="card-actions${m.id === 'singing' ? ' card-actions-singing' : ''}">${registerActions}</div>
+        </article>
+      `;
+    }).join('');
     observeReveals();
     bindCardTilt();
   }
@@ -96,11 +106,14 @@
     const formatItems = m.format.map(s => `<li>${esc(s)}</li>`).join('');
     const ruleItems = m.rules.map(s => `<li>${esc(s)}</li>`).join('');
     const criterionItems = m.criteria.map(([key, val]) => `<div class="criterion-row"><span>${esc(key)}</span><strong>${esc(val)}</strong></div>`).join('');
+    const registrationActions = m.id === 'singing'
+      ? `<div class="modal-registration-options">${registrationLink('singingSolo', 'REGISTER SOLO', 'Register for solo Kalam-e-Iqbal singing', 'button button-burgundy button-large')}${registrationLink('singingGroup', 'REGISTER GROUP', 'Register for group Kalam-e-Iqbal singing', 'button button-burgundy button-large')}</div>`
+      : registrationLink(m.id, 'REGISTER FOR THIS MODULE', `Register for ${m.title}`, 'button button-burgundy button-large');
     modalContent.innerHTML = `
       <div class="modal-head"><span class="modal-overline">THE COMPETITION ARCHIVES / MODULE ${m.number}</span><div class="modal-heading-row"><div><h2 id="modalHeading">${esc(m.name)}</h2><p class="modal-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p>${esc(m.title)}</p></div><div class="modal-symbol">${icon(m.icon)}</div></div><p class="modal-intro">${esc(m.intro)}</p></div>
       <div class="modal-facts"><div><small>FEE</small><strong>${esc(m.fee)}</strong></div><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>FORMAT / TIME</small><strong>${esc(m.duration)}</strong></div></div>
       <div class="modal-body"><div class="modal-panel"><h3>Format & description</h3><ul>${formatItems}</ul></div><div class="modal-panel"><h3>Rules to remember</h3><ul>${ruleItems}</ul></div><div class="modal-panel modal-score"><h3>${esc(m.scoreTitle)}</h3><div class="criteria-list">${criterionItems}</div></div></div>
-      <div class="modal-bottom"><p>Ready to make your mark?<br/><span>Registration confirmation requires payment.</span></p><button type="button" class="button button-burgundy button-large" data-register="${m.id}">REGISTER FOR THIS MODULE ${icon('arrow-up')}</button></div>
+      <div class="modal-bottom"><p>Ready to make your mark?<br/><span>Registration confirmation requires payment.</span></p>${registrationActions}</div>
     `;
   }
 
@@ -123,26 +136,7 @@
     if (lastModalTrigger && typeof lastModalTrigger.focus === 'function') lastModalTrigger.focus();
   }
 
-  function showToast(message) {
-    clearTimeout(toastTimeout);
-    toast.textContent = message;
-    toast.classList.add('is-visible');
-    toastTimeout = setTimeout(() => toast.classList.remove('is-visible'), 4300);
-  }
-
-  function handleRegistration(id) {
-    const link = config.formLinks?.[id];
-    if (typeof link === 'string' && /^https:\/\//i.test(link.trim())) {
-      const opened = window.open(link.trim(), '_blank', 'noopener,noreferrer');
-      if (!opened) window.location.href = link.trim();
-    } else {
-      showToast('Registration link coming soon. Please check back for the Google Form.');
-    }
-  }
-
   document.addEventListener('click', e => {
-    const reg = e.target.closest('[data-register]');
-    if (reg) { handleRegistration(reg.dataset.register); return; }
     const detail = e.target.closest('[data-open]');
     if (detail) { openModal(detail.dataset.open, detail); return; }
     if (e.target.closest('[data-close-modal]')) { closeModal(); return; }

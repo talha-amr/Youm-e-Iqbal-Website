@@ -1,8 +1,7 @@
 /**
  * YOUM-E-IQBAL 2026 / EASY EDIT CONFIG
  * -----------------------------------
- * 1. Paste each Google Form link between the quotation marks.
- * 2. Until you do, clicking Register shows a friendly notice.
+ * 1. Keep each Google Form link matched to its module below.
  * 3. The 18 November deadline is TENTATIVE, not confirmed by the source document.
  * 4. Event start time is not yet confirmed; don't invent a time.
  */
@@ -11,11 +10,12 @@ window.IQBAL_CONFIG = {
   deadline: '2026-11-18T23:59:00+05:00', // tentative / Pakistan Standard Time
   deadlineTentative: true,
   formLinks: {
-    quiz: '',         // Example: 'https://docs.google.com/forms/d/e/EXAMPLE/viewform'
-    singing: '',
-    baitbaazi: '',
-    speech: '',
-    debate: '',
-    documentary: ''
+    debate: 'https://docs.google.com/forms/d/e/1FAIpQLScPzD2m7v6S6U5TTwxm7QkZnn0ZDbQF5wCa8-Ja87gQ2aCSiA/viewform?usp=publish-editor',
+    documentary: 'https://docs.google.com/forms/d/e/1FAIpQLSec0oD1tTu1HgR7_XQROZ2gS4r7tzNqd7LTNlMc2q4PZHDqXA/viewform?usp=publish-editor',
+    speech: 'https://docs.google.com/forms/d/e/1FAIpQLSfHqDMeFN1Sf36_QMqxqlpE3K2m0f44I8DUXysFI-RaZgStnA/viewform?usp=publish-editor',
+    baitbaazi: 'https://docs.google.com/forms/d/e/1FAIpQLScxgYm2XiuxT33q4BScJigSwjNZZRbSUzX6DLk12lKibT3jUQ/viewform?usp=publish-editor',
+    singingGroup: 'https://docs.google.com/forms/d/e/1FAIpQLSfHf7EWV8bgdGCnEF6KAEyL4mqNn50sweAKz3eXCN88fMXSvg/viewform?usp=publish-editor',
+    singingSolo: 'https://docs.google.com/forms/d/e/1FAIpQLSeRNLCyyUvM7x0VwBi8_9cCXEGqiMxfAvP-rUDOmmTWbTPG3A/viewform?usp=publish-editor',
+    quiz: 'https://docs.google.com/forms/d/e/1FAIpQLSeo7fkLsX8fBq0Om5Pe_9B2YW1zrBYyBVxsAVDTsrQ6S13u8w/viewform?usp=publish-editor'
   }
 };
