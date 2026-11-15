@@ -2,13 +2,13 @@
  * YOUM-E-IQBAL 2026 / EASY EDIT CONFIG
  * -----------------------------------
  * 1. Keep each Google Form link matched to its module below.
- * 3. The 18 November deadline is TENTATIVE, not confirmed by the source document.
- * 4. Event start time is not yet confirmed; don't invent a time.
+ * 2. Registration closes Wednesday, 18 November 2026 at 4:00 PM Pakistan time.
+ * 3. Event start time is not yet confirmed; don't invent a time.
  */
 window.IQBAL_CONFIG = {
   eventDate: '2026-11-19',
-  deadline: '2026-11-18T23:59:00+05:00', // tentative / Pakistan Standard Time
-  deadlineTentative: true,
+  deadline: '2026-11-18T16:00:00+05:00', // Pakistan Standard Time
+  deadlineTentative: false,
   formLinks: {
     debate: 'https://docs.google.com/forms/d/e/1FAIpQLScPzD2m7v6S6U5TTwxm7QkZnn0ZDbQF5wCa8-Ja87gQ2aCSiA/viewform?usp=publish-editor',
     documentary: 'https://docs.google.com/forms/d/e/1FAIpQLSec0oD1tTu1HgR7_XQROZ2gS4r7tzNqd7LTNlMc2q4PZHDqXA/viewform?usp=publish-editor',

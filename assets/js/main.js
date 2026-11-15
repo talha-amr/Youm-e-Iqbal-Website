@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T23:59:00+05:00' };
+  const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T16:00:00+05:00' };
 
   // Source: MODULES-DETAIL.pdf, pages 3-8. Prices are in Pakistani rupees.
   const modules = [
@@ -181,7 +181,7 @@
   $$('a', navLinks).forEach(link => link.addEventListener('click', closeNav));
   window.addEventListener('resize', () => { if (window.innerWidth > 880) closeNav(); });
 
-  // Deadline countdown. TENTATIVE until confirmed by organizers.
+  // Deadline countdown uses the configured local offset.
   const deadlineNode = $('#countdown');
   function updateCountdown() {
     const end = new Date(config.deadline).getTime();

@@ -15,8 +15,8 @@ Open **`assets/js/config.js`** and paste each actual Google Form URL between the
 ```js
 window.IQBAL_CONFIG = {
   eventDate: '2026-11-19',
-  deadline: '2026-11-18T23:59:00+05:00',
-  deadlineTentative: true,
+  deadline: '2026-11-18T16:00:00+05:00',
+  deadlineTentative: false,
   formLinks: {
     quiz: 'https://docs.google.com/forms/d/e/YOUR_QUIZ_FORM/viewform',
     singing: 'https://docs.google.com/forms/d/e/YOUR_SINGING_FORM/viewform',
@@ -36,8 +36,8 @@ Replace the example links with your actual URLs. When a URL is blank, the Regist
 - **Venue:** Senate Hall, FCIT Old Campus, University of the Punjab
 - **Eligible:** FCIT Old Campus and New Campus students
 - **Start time:** not yet confirmed in the supplied module document
-- **Registration closing date:** **18 November 2026 — TENTATIVE**, requested as a provisional date. It is **not** confirmed in the supplied document.
-- Countdown assumes **23:59 Pakistan Standard Time** on 18 November purely for display; change `deadline` in config when the organizers confirm the actual cutoff.
+- **Registration closing date:** **Wednesday, 18 November 2026 at 4:00 PM Pakistan Standard Time**.
+- The countdown uses the confirmed 4:00 PM Pakistan Standard Time cutoff in `assets/js/config.js`.
 - The Reel/Documentary **video submission deadline** was not specified and should be confirmed separately.
 
 If the organizers change the event date or final deadline, also update their visible text in `index.html`, and the countdown time in `assets/js/config.js`. A text search for `18 November` and `19 November` will find all static mentions. Final competition topics may also be announced separately.
@@ -65,7 +65,7 @@ Module content, duration, judging criteria and rules are defined in **`assets/js
 - Detailed accessible dialog for rules, format and scoring; Escape key and backdrop to dismiss
 - Participation-category filters (all, individual, team/group)
 - Mobile hamburger navigation
-- Tentative deadline countdown
+- Registration deadline countdown
 - FAQ accordion, award and general rules sections
 - Reduced-motion accessibility support
 - Locally generated Tailwind CSS utilities (no CDN dependency)
