@@ -27,13 +27,17 @@
       criteria: [['Correct answer within timer', '10 marks'], ['Answer after timer / incorrect', '0 marks'], ['Tie', 'Rapid-fire tie-breaker']]
     },
     {
-      id: 'singing', number: '02', icon: 'music', category: 'individual',
-      name: 'Sur o Sikhan', urduName: 'سر و سخن', title: 'Kalam-e-Iqbal Singing Competition',
-      description: 'Perform Iqbal’s kalam live (solo entry).',
-      fee: 'Rs. 300', participation: 'Individual (Solo only)', duration: '4 minutes per entry', scoreTitle: 'Judging Criteria (100 Marks)', badge: 'Live solo performance',
-      intro: 'A live solo musical performance of Allama Iqbal’s kalam, judged on musicality, language, expression, and stage presence.',
-      format: ['Solo performance only (no group entry), 4 minutes per entry.', 'Only the kalam of Allama Iqbal may be performed; live vocals are compulsory.', 'Musical instruments are allowed (e.g. harmonium, tabla, guitar, keyboard); participants bring their own instruments.', 'Kalam is selected before the event to avoid repetition.'],
-      rules: ['Only Iqbal’s kalam is permitted.', 'Live vocals are compulsory; strictly solo participation.', 'Each participant gets a short sound check before the event.'],
+      id: 'singing', number: '02', icon: 'music', category: ['individual', 'team'],
+      name: 'Sur o Sakhan', urduName: 'سر و سخن', title: 'Kalam-e-Iqbal Singing Competition',
+      description: 'Perform Iqbal’s kalam live as a soloist or in a group.',
+      fee: 'Solo: Rs. 200 · Group: Rs. 400', participation: 'Solo or group', duration: '4 minutes per entry', scoreTitle: 'Judging Criteria (100 Marks)', badge: 'Solo & group performance',
+      intro: 'A live performance of Allama Iqbal’s kalam, entered as either a soloist or a group and judged on musicality, language, expression, and stage presence.',
+      format: ['Solo entries are Rs. 200; group entries are Rs. 400.', 'Each entry has up to 4 minutes to perform.', 'Only the kalam of Allama Iqbal may be performed; live vocals are compulsory.', 'Musical instruments are allowed (e.g. harmonium, tabla, guitar, keyboard); participants bring their own instruments.', 'Kalam is selected before the event to avoid repetition.'],
+      rules: ['Only Iqbal’s kalam is permitted.', 'Live vocals are compulsory.', 'Each entry gets a short sound check before the event.'],
+      registrationOptions: [
+        { id: 'singingSolo', cardLabel: 'REGISTER SOLO', modalLabel: 'REGISTER SOLO · RS. 200' },
+        { id: 'singingGroup', cardLabel: 'REGISTER GROUP', modalLabel: 'REGISTER GROUP · RS. 400' }
+      ],
       criteria: [['Voice and tune', '30'], ['Urdu diction and pronunciation', '20'], ['Understanding and expression of the kalam', '20'], ['Composition and use of instruments', '20'], ['Stage presence', '10']]
     },
     {
@@ -98,15 +102,18 @@
   let activeFilter = 'all';
 
   function renderCards(filter = 'all') {
-    const visible = modules.filter(m => filter === 'all' || m.category === filter);
+    const visible = modules.filter(m => filter === 'all' || (Array.isArray(m.category) ? m.category.includes(filter) : m.category === filter));
     grid.innerHTML = visible.map((m, index) => {
-      const registerActions = `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrationLink(m.id, 'REGISTER', `Register for ${m.title}`)}`;
+      const registrations = m.registrationOptions
+        ? m.registrationOptions.map(option => registrationLink(option.id, option.cardLabel, `${option.cardLabel.toLowerCase()} for ${m.title}`)).join('')
+        : registrationLink(m.id, 'REGISTER', `Register for ${m.title}`);
+      const registerActions = `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrations}`;
       return `
         <article class="module-card" data-reveal data-module="${esc(m.id)}" style="--card-index:${index}">
           <div class="card-top"><span class="card-number">${m.number}<i> / 05</i></span><div class="card-emblem">${icon(m.icon)}</div></div>
           <div class="card-core"><div class="card-category">${esc(m.badge)}</div><h3>${esc(m.name)}</h3><p class="card-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p class="card-subtitle">${esc(m.title)}</p><p class="card-description">${esc(m.description)}</p></div>
           <div class="card-details"><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>REGISTRATION FEE</small><strong>${esc(m.fee)}</strong></div></div>
-          <div class="card-actions">${registerActions}</div>
+          <div class="card-actions${m.registrationOptions ? ' card-actions-singing' : ''}">${registerActions}</div>
         </article>
       `;
     }).join('');
@@ -115,10 +122,12 @@
   }
 
   function renderModal(m) {
-    const formatItems = m.format.map(s => `<li>${esc(s)}</li>`).join('');
+    const formatItems = m.format.map(s => `<li>${esc(s).replace(/\n/g, '<br>')}</li>`).join('');
     const ruleItems = m.rules.map(s => `<li>${esc(s)}</li>`).join('');
     const criterionItems = m.criteria.map(([key, val]) => `<div class="criterion-row"><span>${esc(key)}</span><strong>${esc(val)}</strong></div>`).join('');
-    const registrationActions = registrationLink(m.id, 'REGISTER FOR THIS MODULE', `Register for ${m.title}`, 'button button-burgundy button-large');
+    const registrationActions = m.registrationOptions
+      ? `<div class="modal-registration-options">${m.registrationOptions.map(option => registrationLink(option.id, option.modalLabel, `${option.cardLabel.toLowerCase()} for ${m.title}`, 'button button-burgundy button-large')).join('')}</div>`
+      : registrationLink(m.id, 'REGISTER FOR THIS MODULE', `Register for ${m.title}`, 'button button-burgundy button-large');
     modalContent.innerHTML = `
       <div class="modal-head"><span class="modal-overline">THE COMPETITION ARCHIVES / MODULE ${m.number}</span><div class="modal-heading-row"><div><h2 id="modalHeading">${esc(m.name)}</h2><p class="modal-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p>${esc(m.title)}</p></div><div class="modal-symbol">${icon(m.icon)}</div></div><p class="modal-intro">${esc(m.intro)}</p></div>
       <div class="modal-facts"><div><small>FEE</small><strong>${esc(m.fee)}</strong></div><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>FORMAT / TIME</small><strong>${esc(m.duration)}</strong></div></div>

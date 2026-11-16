@@ -8,7 +8,7 @@ A complete, responsive, vintage-literary-themed static website for the **Event M
 2. Open `index.html` in your browser. **No server, build step, or npm install is required.**
 3. To publish, upload the contents of this folder to any static hosting service (Netlify, GitHub Pages, Cloudflare Pages, etc.).
 
-## IMPORTANT — Add your five Google Form links
+## IMPORTANT — Add your six Google Form links
 
 Open **`assets/js/config.js`** and paste each actual Google Form URL between the quotation marks:
 
@@ -19,7 +19,8 @@ window.IQBAL_CONFIG = {
   deadlineTentative: false,
   formLinks: {
     quiz: 'https://docs.google.com/forms/d/e/YOUR_QUIZ_FORM/viewform',
-    singing: 'https://docs.google.com/forms/d/e/YOUR_SINGING_FORM/viewform',
+    singingSolo: 'https://docs.google.com/forms/d/e/YOUR_SINGING_SOLO_FORM/viewform',
+    singingGroup: 'https://docs.google.com/forms/d/e/YOUR_SINGING_GROUP_FORM/viewform',
     baitbaazi: 'https://docs.google.com/forms/d/e/YOUR_BAIT_BAAZI_FORM/viewform',
     speech: 'https://docs.google.com/forms/d/e/YOUR_SPEECH_FORM/viewform',
     documentary: 'https://docs.google.com/forms/d/e/YOUR_VIDEO_FORM/viewform'
@@ -46,7 +47,7 @@ If the organizers change the event date or final deadline, also update their vis
 | # | Module title | Competition | Category | Fee |
 |---|---|---|---|---|
 | 1 | Fikr o Firasat | Oral Iqbal Quiz | Solo (Individual) | Rs. 300 |
-| 2 | Sur o Sikhan | Kalam-e-Iqbal Singing | Solo (Individual) | Rs. 300 |
+| 2 | Sur o Sakhan | Kalam-e-Iqbal Singing | Solo or group | Solo: Rs. 200; group: Rs. 400 |
 | 3 | Bazm-e-Qafia | Bait Baazi | Group / Team of 2 | Rs. 500 / team |
 | 4 | Mubahisa-e-Fikr | Speech Competition | Solo (Individual) | Rs. 400 |
 | 5 | Nigah-e-Shaheen | Reel / Documentary | Solo (Individual) | Rs. 350 |
