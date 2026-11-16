@@ -8,7 +8,7 @@ A complete, responsive, vintage-literary-themed static website for the **Event M
 2. Open `index.html` in your browser. **No server, build step, or npm install is required.**
 3. To publish, upload the contents of this folder to any static hosting service (Netlify, GitHub Pages, Cloudflare Pages, etc.).
 
-## IMPORTANT — Add your six Google Form links
+## IMPORTANT — Add your five Google Form links
 
 Open **`assets/js/config.js`** and paste each actual Google Form URL between the quotation marks:
 
@@ -21,7 +21,6 @@ window.IQBAL_CONFIG = {
     quiz: 'https://docs.google.com/forms/d/e/YOUR_QUIZ_FORM/viewform',
     singing: 'https://docs.google.com/forms/d/e/YOUR_SINGING_FORM/viewform',
     baitbaazi: 'https://docs.google.com/forms/d/e/YOUR_BAIT_BAAZI_FORM/viewform',
-    speech: 'https://docs.google.com/forms/d/e/YOUR_SPEECH_FORM/viewform',
     debate: 'https://docs.google.com/forms/d/e/YOUR_DEBATE_FORM/viewform',
     documentary: 'https://docs.google.com/forms/d/e/YOUR_VIDEO_FORM/viewform'
   }
@@ -42,16 +41,15 @@ Replace the example links with your actual URLs. When a URL is blank, the Regist
 
 If the organizers change the event date or final deadline, also update their visible text in `index.html`, and the countdown time in `assets/js/config.js`. A text search for `18 November` and `19 November` will find all static mentions. Final competition topics may also be announced separately.
 
-## Six modules
+## Five modules
 
-| # | Module title | Competition | Fee |
-|---|---|---|---|
-| 1 | Fikr o Firasat | Written Iqbal Quiz | Rs. 250 per person |
-| 2 | Sur o Sikhan | Kalam-e-Iqbal Singing | Solo Rs. 200 / Group Rs. 400 |
-| 3 | Bazm-e-Qafia | Bait Baazi | Rs. 300 per person |
-| 4 | Nida-e-Waqt | Urdu Speech | Rs. 300 per person |
-| 5 | Mubahisa-e-Fikr | Urdu Debate | Rs. 400 per team |
-| 6 | Nigah-e-Shaheen | Reel / Documentary | Rs. 300 per person |
+| # | Module title | Competition | Category | Fee |
+|---|---|---|---|---|
+| 1 | Fikr o Firasat | Written Iqbal Quiz | Solo (Individual) | Rs. 300 |
+| 2 | Sur o Sikhan | Kalam-e-Iqbal Singing | Solo (Individual) | Rs. 300 |
+| 3 | Bazm-e-Qafia | Bait Baazi | Group / Team of 2 | Rs. 500 / team |
+| 4 | Mubahisa-e-Fikr | Urdu Debate | Solo (Individual) | Rs. 400 |
+| 5 | Nigah-e-Shaheen | Reel / Documentary | Solo (Individual) | Rs. 350 |
 
 Module content, duration, judging criteria and rules are defined in **`assets/js/main.js`** under the `modules` array and are based on the supplied *MODULES-DETAIL.pdf* (pages 1–8).
 

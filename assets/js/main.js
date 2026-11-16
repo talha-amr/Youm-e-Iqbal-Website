@@ -2,63 +2,64 @@
   'use strict';
   const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T16:00:00+05:00' };
 
-  // Source: MODULES-DETAIL.pdf, pages 3-8. Prices are in Pakistani rupees.
+  // Source: MODULES-DETAIL.pdf, updated per latest event schedule. Prices are in Pakistani rupees.
   const modules = [
     {
       id: 'quiz', number: '01', icon: 'book', category: 'individual',
       name: 'Fikr o Firasat', urduName: 'فکر و فراست', title: 'Iqbal Quiz Competition (Written)',
       description: 'Questions cover Iqbal’s life, poetry, and philosophy.',
-      fee: 'Rs. 250', participation: 'Individual', duration: '20 minutes', scoreTitle: 'Scoring (30 Marks)', badge: '30 MCQs',
+      fee: 'Rs. 300', participation: 'Individual (Solo only)', duration: '20 minutes', scoreTitle: 'Scoring (30 Marks)', badge: '30 MCQs',
       intro: 'A written, individual test covering Iqbal’s life, literary works, philosophy of Khudi, and the Pakistan Movement.',
-      format: ['Individual written test held in the Senate Hall: 30 MCQs to be solved within 20 minutes.', 'Questions cover Iqbal’s life, his works (e.g. Bang-e-Dra, Bal-e-Jibril, Zarb-e-Kaleem), his philosophy of Khudi, and the Pakistan Movement.', 'Answer sheets are checked during the event and the result is announced at the closing.'],
+      format: ['Individual written test held in the Senate Hall: 30 MCQs to be solved within 20 minutes.', 'Solo participation only (no group entry).', 'Questions cover Iqbal’s life, his works (e.g. Bang-e-Dra, Bal-e-Jibril, Zarb-e-Kaleem), his philosophy of Khudi, and the Pakistan Movement.', 'Answer sheets are checked during the event and the result is announced at the closing.'],
       rules: ['1 mark per correct answer; no negative marking.', 'Ties are resolved by a tie-breaker question.', 'The answer key is prepared and verified by faculty.'],
       criteria: [['Each correct MCQ', '1 mark'], ['Incorrect / unanswered', '0 marks (no negative marking)'], ['Tie', 'Tie-breaker question']]
     },
     {
-      id: 'singing', number: '02', icon: 'music', category: 'team',
+      id: 'singing', number: '02', icon: 'music', category: 'individual',
       name: 'Sur o Sikhan', urduName: 'سر و سخن', title: 'Kalam-e-Iqbal Singing Competition',
-      description: 'Perform Iqbal’s kalam live, solo or in a group.',
-      fee: 'Solo Rs. 200 / Group Rs. 400', participation: 'Solo or group (maximum 4 members)', duration: '4 minutes per entry', scoreTitle: 'Judging Criteria (100 Marks)', badge: 'Live performance',
-      intro: 'A live musical performance of Allama Iqbal’s kalam, judged on musicality, language, expression, and stage presence.',
-      format: ['Solo or group performance (maximum 4 members), 4 minutes per entry.', 'Only the kalam of Allama Iqbal may be performed; live vocals are compulsory.', 'Musical instruments are allowed (e.g. harmonium, tabla, guitar, keyboard); participants bring their own instruments.', 'Kalam is selected before the event to avoid repetition.'],
-      rules: ['Only Iqbal’s kalam is permitted.', 'Live vocals are compulsory.', 'Each participant gets a short sound check before the event.'],
+      description: 'Perform Iqbal’s kalam live (solo entry).',
+      fee: 'Rs. 300', participation: 'Individual (Solo only)', duration: '4 minutes per entry', scoreTitle: 'Judging Criteria (100 Marks)', badge: 'Live solo performance',
+      intro: 'A live solo musical performance of Allama Iqbal’s kalam, judged on musicality, language, expression, and stage presence.',
+      format: ['Solo performance only (no group entry), 4 minutes per entry.', 'Only the kalam of Allama Iqbal may be performed; live vocals are compulsory.', 'Musical instruments are allowed (e.g. harmonium, tabla, guitar, keyboard); participants bring their own instruments.', 'Kalam is selected before the event to avoid repetition.'],
+      rules: ['Only Iqbal’s kalam is permitted.', 'Live vocals are compulsory; strictly solo participation.', 'Each participant gets a short sound check before the event.'],
       criteria: [['Voice and tune', '30'], ['Urdu diction and pronunciation', '20'], ['Understanding and expression of the kalam', '20'], ['Composition and use of instruments', '20'], ['Stage presence', '10']]
     },
     {
-      id: 'baitbaazi', number: '03', icon: 'scroll', category: 'individual',
+      id: 'baitbaazi', number: '03', icon: 'scroll', category: 'team',
       name: 'Bazm-e-Qafia', urduName: 'بزمِ قافیہ', title: 'Bait Baazi (Urdu Poetry Contest)',
-      description: 'Recite Urdu couplets across three rounds, including an Iqbal round.',
-      fee: 'Rs. 300', participation: 'Solo registration, split into Team A and B',       duration: '30 seconds per turn', scoreTitle: 'Scoring', badge: '3 rounds',
-      intro: 'Participants register individually, then compete on stage in Team A versus Team B across three poetry rounds.',
-      format: ['Participants register individually; all are then divided into only two teams, Team A and Team B, which compete on stage.', 'Round 1 — Harf-e-Aakhir: each team recites a couplet beginning with the last letter of the previous couplet (any Urdu poet).', 'Round 2 — Iqbal Special: only couplets of Allama Iqbal are allowed.', 'Round 3 — Sher ki Samajh: a couplet is shown on screen and the team explains its meaning for bonus points.'],
+      description: 'Recite Urdu couplets in teams of two across three rounds, including an Iqbal round.',
+      fee: 'Rs. 500 / team', participation: 'Team of 2 members', duration: '30 seconds per turn', scoreTitle: 'Scoring', badge: '3 rounds',
+      intro: 'Teams of two compete on stage across three poetry rounds, reciting Urdu verses and demonstrating their command of classical poetry.',
+      format: ['Participants register as a team of two members.', 'Teams compete on stage across three poetry rounds.', 'Round 1 — Harf-e-Aakhir: each team recites a couplet beginning with the last letter of the previous couplet (any Urdu poet).', 'Round 2 — Iqbal Special: only couplets of Allama Iqbal are allowed.', 'Round 3 — Sher ki Samajh: a couplet is shown on screen and the team explains its meaning for bonus points.'],
       rules: ['30 seconds per turn; a couplet cannot be repeated.', 'A wrong or misattributed couplet may be challenged by the opposing team and checked by the judges.', 'Inappropriate verses lead to disqualification.'],
       criteria: [['Each valid couplet', '10 marks'], ['Correct explanation of meaning (bonus)', '5 marks'], ['Winner', 'Team with the higher total']]
     },
     {
-      id: 'speech', number: '04', icon: 'mic', category: 'individual',
-      name: 'Nida-e-Waqt', urduName: 'ندائے وقت', title: 'Speech Competition',
-      description: 'Deliver a prepared Urdu speech on Iqbal’s life, poetry, or philosophy.',
-      fee: 'Rs. 300', participation: 'Individual', duration: '3 minutes per participant', scoreTitle: 'Judging Criteria', badge: 'Strictly Urdu',
-      intro: 'An individual, prepared Urdu speech connected to Iqbal’s life, poetry, and philosophy.',
-      format: ['Participants deliver a prepared speech on a topic related to Allama Iqbal.', 'Strictly Urdu; use of English is not permitted. Participation is individual.', 'Topics are drawn from Iqbal’s life, poetry, and philosophy; the list will be shared after approval.'],
-      rules: ['The speech must remain relevant to the assigned topic.', 'Reading from a complete script or mobile phone is not permitted; brief notes may be used.', 'A warning bell sounds at 1.5 minutes and the final bell at 3 minutes; the time limit is strictly observed.', 'The decision of the judges is final and binding.'],
-      criteria: [['Content and relevance', '30%'], ['Delivery and confidence', '25%'], ['Language and pronunciation', '20%'], ['Use of Iqbal’s poetry and references', '15%'], ['Time management', '10%']]
-    },
-    {
-      id: 'debate', number: '05', icon: 'people', category: 'team',
+      id: 'debate', number: '04', icon: 'mic', category: 'individual',
       name: 'Mubahisa-e-Fikr', urduName: 'مباحثۂ فکر', title: 'Debate Competition',
-      description: 'Debate both sides of a motion related to Iqbal in a two-person team.',
-      fee: 'Rs. 400 / team', participation: 'Team of 2 members', duration: '4 minutes per team (2 minutes per person)', scoreTitle: 'Judging Criteria', badge: 'Strictly Urdu',
-      intro: 'A two-person team debate in Urdu on a motion inspired by Iqbal’s thinking, including a rebuttal round.',
-      format: ['Medium is strictly Urdu; use of English is not permitted.', 'Students register as a team of two members; the topic is selected before the event.', 'One team member speaks in favour of the topic and the other speaks against it.', 'Each speaker presents arguments in favour of or against the motion.', 'A rebuttal session of two minutes per person follows the main speeches.'],
-      rules: ['Interruption of the opposing speaker is not permitted.', 'Arguments must be supported by logical reasoning and relevant references to Iqbal’s work.', 'The decision of the judges is final and binding.'],
-      criteria: [['Quality of arguments', '35%'], ['Rebuttal and counter-arguments', '25%'], ['Presentation and confidence', '20%'], ['Language proficiency', '20%']]
+      description: 'Solo debate competition. Topics on youth, identity, and national destiny.',
+      fee: 'Rs. 400', participation: 'Individual (Solo)', duration: '3–4 minutes', scoreTitle: 'Judging Criteria', badge: '3–4 mins',
+      intro: 'An individual debate competition challenging speakers to present persuasive, well-reasoned arguments on vital national and philosophical motions.',
+      format: [
+        'Participation is strictly individual (solo); participants argue in favour of or against the motion.',
+        'Speech duration: 3–4 minutes per speaker. Negative marking applies if the time limit is exceeded.',
+        'Debate Topic 1: "A nation that has lost faith in its youth has already surrendered future"',
+        'Debate Topic 2: "قوموں کی بیداری کا پہلا قدم خود کو پہچانا ہے"',
+        'Speeches must be delivered extemporaneously; paper reading is strictly prohibited.'
+      ],
+      rules: [
+        'Speech duration: 3–4 minutes; negative marking applies if time exceeds.',
+        'Paper reading is strictly not allowed.',
+        'Offensive political or abusive remarks against organizations and religions will result in immediate disqualification.',
+        'The decision of the judges is final and binding.'
+      ],
+      criteria: [['Quality of arguments & logical reasoning', '35%'], ['Delivery, expression & confidence', '25%'], ['Language, diction & articulation', '20%'], ['Adherence to time & rules (no paper reading)', '20%']]
     },
     {
-      id: 'documentary', number: '06', icon: 'film', category: 'individual',
+      id: 'documentary', number: '05', icon: 'film', category: 'individual',
       name: 'Nigah-e-Shaheen', urduName: 'نگاہِ شاہین', title: 'Reel / Documentary Competition',
       description: 'Submit an original reel or documentary about Iqbal.',
-      fee: 'Rs. 300', participation: 'Individual (solo entry)', duration: 'Reel up to 80 seconds; documentary up to 3 minutes', scoreTitle: 'Judging Criteria (100 Marks)', badge: 'Video submission',
+      fee: 'Rs. 350', participation: 'Individual (Solo entry)', duration: 'Reel up to 80 seconds; documentary up to 3 minutes', scoreTitle: 'Judging Criteria (100 Marks)', badge: 'Video submission',
       intro: 'An original video exploring Allama Iqbal, his message, or its relevance to the world today.',
       format: ['Solo entry: a reel of up to 80 seconds or a short documentary of up to three minutes on Allama Iqbal, his message, or its relevance today.', 'Entries may be in Urdu or English; subtitles are encouraged.', 'The final video is submitted before the announced deadline and screened during the event.'],
       rules: ['Content must be original; any music, footage, or images from other sources must be credited and used appropriately.', 'Late entries are not accepted.', 'Entries are tested on the event system before the event day.'],
@@ -84,17 +85,15 @@
   let activeFilter = 'all';
 
   function renderCards(filter = 'all') {
-    const visible = modules.filter(m => filter === 'all' || m.category === filter || (filter === 'individual' && m.id === 'singing'));
+    const visible = modules.filter(m => filter === 'all' || m.category === filter);
     grid.innerHTML = visible.map((m, index) => {
-      const registerActions = m.id === 'singing'
-        ? `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrationLink('singingSolo', 'SOLO', `Register for the solo ${m.title}`)}${registrationLink('singingGroup', 'GROUP', `Register for the group ${m.title}`)}`
-        : `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrationLink(m.id, 'REGISTER', `Register for ${m.title}`)}`;
+      const registerActions = `<button class="card-detail-button" type="button" data-open="${esc(m.id)}" aria-label="View ${esc(m.title)} details">DETAILS ${icon('arrow')}</button>${registrationLink(m.id, 'REGISTER', `Register for ${m.title}`)}`;
       return `
         <article class="module-card" data-reveal data-module="${esc(m.id)}" style="--card-index:${index}">
-          <div class="card-top"><span class="card-number">${m.number}<i> / 06</i></span><div class="card-emblem">${icon(m.icon)}</div></div>
+          <div class="card-top"><span class="card-number">${m.number}<i> / 05</i></span><div class="card-emblem">${icon(m.icon)}</div></div>
           <div class="card-core"><div class="card-category">${esc(m.badge)}</div><h3>${esc(m.name)}</h3><p class="card-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p class="card-subtitle">${esc(m.title)}</p><p class="card-description">${esc(m.description)}</p></div>
           <div class="card-details"><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>REGISTRATION FEE</small><strong>${esc(m.fee)}</strong></div></div>
-          <div class="card-actions${m.id === 'singing' ? ' card-actions-singing' : ''}">${registerActions}</div>
+          <div class="card-actions">${registerActions}</div>
         </article>
       `;
     }).join('');
@@ -106,9 +105,7 @@
     const formatItems = m.format.map(s => `<li>${esc(s)}</li>`).join('');
     const ruleItems = m.rules.map(s => `<li>${esc(s)}</li>`).join('');
     const criterionItems = m.criteria.map(([key, val]) => `<div class="criterion-row"><span>${esc(key)}</span><strong>${esc(val)}</strong></div>`).join('');
-    const registrationActions = m.id === 'singing'
-      ? `<div class="modal-registration-options">${registrationLink('singingSolo', 'REGISTER SOLO', 'Register for solo Kalam-e-Iqbal singing', 'button button-burgundy button-large')}${registrationLink('singingGroup', 'REGISTER GROUP', 'Register for group Kalam-e-Iqbal singing', 'button button-burgundy button-large')}</div>`
-      : registrationLink(m.id, 'REGISTER FOR THIS MODULE', `Register for ${m.title}`, 'button button-burgundy button-large');
+    const registrationActions = registrationLink(m.id, 'REGISTER FOR THIS MODULE', `Register for ${m.title}`, 'button button-burgundy button-large');
     modalContent.innerHTML = `
       <div class="modal-head"><span class="modal-overline">THE COMPETITION ARCHIVES / MODULE ${m.number}</span><div class="modal-heading-row"><div><h2 id="modalHeading">${esc(m.name)}</h2><p class="modal-urdu-name" lang="ur" dir="rtl">${esc(m.urduName)}</p><p>${esc(m.title)}</p></div><div class="modal-symbol">${icon(m.icon)}</div></div><p class="modal-intro">${esc(m.intro)}</p></div>
       <div class="modal-facts"><div><small>FEE</small><strong>${esc(m.fee)}</strong></div><div><small>PARTICIPATION</small><strong>${esc(m.participation)}</strong></div><div><small>FORMAT / TIME</small><strong>${esc(m.duration)}</strong></div></div>
