@@ -15,7 +15,7 @@ Open **`assets/js/config.js`** and paste each actual Google Form URL between the
 ```js
 window.IQBAL_CONFIG = {
   eventDate: '2026-11-19',
-  deadline: '2026-11-18T16:00:00+05:00',
+  deadline: '2026-11-18T14:00:00+05:00',
   deadlineTentative: false,
   formLinks: {
     quiz: 'https://docs.google.com/forms/d/e/YOUR_QUIZ_FORM/viewform',
@@ -36,8 +36,8 @@ Replace the example links with your actual URLs. When a URL is blank, the Regist
 - **Venue:** Senate Hall, FCIT Old Campus, University of the Punjab
 - **Eligible:** FCIT Old Campus and New Campus students
 - **Start time:** not yet confirmed in the supplied module document
-- **Registration closing date:** **Wednesday, 18 November 2026 at 4:00 PM Pakistan Standard Time**.
-- The countdown uses the confirmed 4:00 PM Pakistan Standard Time cutoff in `assets/js/config.js`.
+- **Registration closing date:** **Wednesday, 18 November 2026 at 2:00 PM Pakistan Standard Time**.
+- The countdown uses the confirmed 2:00 PM Pakistan Standard Time cutoff in `assets/js/config.js`.
 - The Reel/Documentary **video submission deadline** was not specified and should be confirmed separately.
 
 If the organizers change the event date or final deadline, also update their visible text in `index.html`, and the countdown time in `assets/js/config.js`. A text search for `18 November` and `19 November` will find all static mentions. Final competition topics may also be announced separately.
@@ -49,7 +49,7 @@ If the organizers change the event date or final deadline, also update their vis
 | 1 | Fikr o Firasat | Oral Iqbal Quiz | Solo (Individual) | Rs. 300 |
 | 2 | Sur o Sakhan | Kalam-e-Iqbal Singing | Solo or group | Solo: Rs. 200; group: Rs. 400 |
 | 3 | Bazm-e-Qafia | Bait Baazi | Group / Team of 2 | Rs. 500 / team |
-| 4 | Mubahisa-e-Fikr | Speech Competition | Solo (Individual) | Rs. 400 |
+| 4 | Nida-e-Waqt | Speech Competition | Solo (Individual) | Rs. 400 |
 | 5 | Nigah-e-Shaheen | Reel / Documentary | Solo (Individual) | Rs. 350 |
 
 Module content, duration, judging criteria and rules are defined in **`assets/js/main.js`** under the `modules` array and are based on the supplied *MODULES-DETAIL.pdf* (pages 1–8).

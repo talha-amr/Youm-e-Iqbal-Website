@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T16:00:00+05:00' };
+  const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T14:00:00+05:00' };
 
   // Source: MODULES-DETAIL.pdf, updated per latest event schedule. Prices are in Pakistani rupees.
   const modules = [
@@ -52,7 +52,7 @@
     },
     {
       id: 'speech', number: '04', icon: 'mic', category: 'individual',
-      name: 'Mubahisa-e-Fikr', urduName: 'مباحثۂ فکر', title: 'Speech Competition',
+      name: 'Nida-e-Waqt', urduName: 'ندائے وقت', title: 'Speech Competition',
       description: 'Prepared 3-minute speech on Iqbal’s philosophy. Both English and Urdu permitted.',
       fee: 'Rs. 400', participation: 'Individual (Solo)', duration: '3 minutes per participant', scoreTitle: 'Judging Criteria', badge: 'English & Urdu',
       intro: 'An individual speech competition delivering eloquent oratory on Iqbal’s celebrated poetry and timeless message of Shaheen. Speeches can be in either Urdu or English.',
