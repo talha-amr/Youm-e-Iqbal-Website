@@ -6,13 +6,25 @@
   const modules = [
     {
       id: 'quiz', number: '01', icon: 'book', category: 'individual',
-      name: 'Fikr o Firasat', urduName: 'فکر و فراست', title: 'Iqbal Quiz Competition (Written)',
-      description: 'Questions cover Iqbal’s life, poetry, and philosophy.',
-      fee: 'Rs. 300', participation: 'Individual (Solo only)', duration: '20 minutes', scoreTitle: 'Scoring (30 Marks)', badge: '30 MCQs',
-      intro: 'A written, individual test covering Iqbal’s life, literary works, philosophy of Khudi, and the Pakistan Movement.',
-      format: ['Individual written test held in the Senate Hall: 30 MCQs to be solved within 20 minutes.', 'Solo participation only (no group entry).', 'Questions cover Iqbal’s life, his works (e.g. Bang-e-Dra, Bal-e-Jibril, Zarb-e-Kaleem), his philosophy of Khudi, and the Pakistan Movement.', 'Answer sheets are checked during the event and the result is announced at the closing.'],
-      rules: ['1 mark per correct answer; no negative marking.', 'Ties are resolved by a tie-breaker question.', 'The answer key is prepared and verified by faculty.'],
-      criteria: [['Each correct MCQ', '1 mark'], ['Incorrect / unanswered', '0 marks (no negative marking)'], ['Tie', 'Tie-breaker question']]
+      name: 'Fikr o Firasat', urduName: 'فکر و فراست', title: 'Iqbal Quiz Competition (Oral)',
+      description: 'Oral quiz on Iqbal’s life, poetry, and philosophy. Answer within the timer.',
+      fee: 'Rs. 300', participation: 'Individual (Solo only)', duration: 'Oral timer round', scoreTitle: 'Scoring', badge: 'Oral Quiz & Timer',
+      intro: 'A live oral quiz competition where solo participants answer questions on Allama Iqbal’s life, literary works, and philosophy within a strict timer.',
+      format: [
+        'Participation is strictly individual (solo); no group entries.',
+        'Oral quiz format: questions are delivered orally on stage (not written, no answer sheets).',
+        'Participants must give their answer within the allotted countdown timer.',
+        'Questions cover Iqbal’s life, major works (Bang-e-Dra, Bal-e-Jibril, Zarb-e-Kaleem), the philosophy of Khudi, and the Pakistan Movement.',
+        'Scoring is updated live on stage during each participant’s turn.'
+      ],
+      rules: [
+        'Strictly solo participation; no answer sheets or written assistance.',
+        'Answers must be spoken clearly before the countdown timer expires.',
+        'Late answers or expired timers receive zero marks.',
+        'Ties are resolved through a rapid-fire tie-breaker question.',
+        'The decision of the quizmaster and judges is final.'
+      ],
+      criteria: [['Correct answer within timer', '10 marks'], ['Answer after timer / incorrect', '0 marks'], ['Tie', 'Rapid-fire tie-breaker']]
     },
     {
       id: 'singing', number: '02', icon: 'music', category: 'individual',
@@ -35,25 +47,26 @@
       criteria: [['Each valid couplet', '10 marks'], ['Correct explanation of meaning (bonus)', '5 marks'], ['Winner', 'Team with the higher total']]
     },
     {
-      id: 'debate', number: '04', icon: 'mic', category: 'individual',
-      name: 'Mubahisa-e-Fikr', urduName: 'مباحثۂ فکر', title: 'Debate Competition',
-      description: 'Solo debate competition. Topics on youth, identity, and national destiny.',
-      fee: 'Rs. 400', participation: 'Individual (Solo)', duration: '3–4 minutes', scoreTitle: 'Judging Criteria', badge: '3–4 mins',
-      intro: 'An individual debate competition challenging speakers to present persuasive, well-reasoned arguments on vital national and philosophical motions.',
+      id: 'speech', number: '04', icon: 'mic', category: 'individual',
+      name: 'Mubahisa-e-Fikr', urduName: 'مباحثۂ فکر', title: 'Speech Competition',
+      description: 'Prepared 3-minute speech on Iqbal’s philosophy. Both English and Urdu permitted.',
+      fee: 'Rs. 400', participation: 'Individual (Solo)', duration: '3 minutes per participant', scoreTitle: 'Judging Criteria', badge: 'English & Urdu',
+      intro: 'An individual speech competition delivering eloquent oratory on Iqbal’s celebrated poetry and timeless message of Shaheen. Speeches can be in either Urdu or English.',
       format: [
-        'Participation is strictly individual (solo); participants argue in favour of or against the motion.',
-        'Speech duration: 3–4 minutes per speaker. Negative marking applies if the time limit is exceeded.',
-        'Debate Topic 1: "A nation that has lost faith in its youth has already surrendered future"',
-        'Debate Topic 2: "قوموں کی بیداری کا پہلا قدم خود کو پہچانا ہے"',
-        'Speeches must be delivered extemporaneously; paper reading is strictly prohibited.'
+        'Participation is strictly individual (solo).',
+        'Speech duration: exactly 3 minutes per speaker.',
+        'Medium: Speeches can be delivered in both English and Urdu.',
+        'Assigned Poetry Topic / Motion:\n"شاہیں کبھی پرواز سے تھک کر نہیں گِرتا\nپُردَم ہے اگر تُو، تو نہیں خطرۂ افتاد"\n(A Shaheen never falls weary from flight; if you possess soaring spirit and resolve, there is no fear of falling).',
+        'Speeches must be delivered extemporaneously; complete script reading is not permitted.'
       ],
       rules: [
-        'Speech duration: 3–4 minutes; negative marking applies if time exceeds.',
-        'Paper reading is strictly not allowed.',
-        'Offensive political or abusive remarks against organizations and religions will result in immediate disqualification.',
+        'Speech duration is strictly 3 minutes; time limits are strictly observed.',
+        'Reading full scripts or from mobile phones is not permitted; brief cue notes are allowed.',
+        'Both Urdu and English languages are welcomed.',
+        'Content must remain relevant to the assigned Iqbalian verse and theme.',
         'The decision of the judges is final and binding.'
       ],
-      criteria: [['Quality of arguments & logical reasoning', '35%'], ['Delivery, expression & confidence', '25%'], ['Language, diction & articulation', '20%'], ['Adherence to time & rules (no paper reading)', '20%']]
+      criteria: [['Content, depth & relevance to the shair', '35%'], ['Delivery, eloquence & voice modulation', '25%'], ['Language proficiency & pronunciation', '20%'], ['Stage presence & time management (3 mins)', '20%']]
     },
     {
       id: 'documentary', number: '05', icon: 'film', category: 'individual',

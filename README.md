@@ -21,7 +21,7 @@ window.IQBAL_CONFIG = {
     quiz: 'https://docs.google.com/forms/d/e/YOUR_QUIZ_FORM/viewform',
     singing: 'https://docs.google.com/forms/d/e/YOUR_SINGING_FORM/viewform',
     baitbaazi: 'https://docs.google.com/forms/d/e/YOUR_BAIT_BAAZI_FORM/viewform',
-    debate: 'https://docs.google.com/forms/d/e/YOUR_DEBATE_FORM/viewform',
+    speech: 'https://docs.google.com/forms/d/e/YOUR_SPEECH_FORM/viewform',
     documentary: 'https://docs.google.com/forms/d/e/YOUR_VIDEO_FORM/viewform'
   }
 };
@@ -45,10 +45,10 @@ If the organizers change the event date or final deadline, also update their vis
 
 | # | Module title | Competition | Category | Fee |
 |---|---|---|---|---|
-| 1 | Fikr o Firasat | Written Iqbal Quiz | Solo (Individual) | Rs. 300 |
+| 1 | Fikr o Firasat | Oral Iqbal Quiz | Solo (Individual) | Rs. 300 |
 | 2 | Sur o Sikhan | Kalam-e-Iqbal Singing | Solo (Individual) | Rs. 300 |
 | 3 | Bazm-e-Qafia | Bait Baazi | Group / Team of 2 | Rs. 500 / team |
-| 4 | Mubahisa-e-Fikr | Urdu Debate | Solo (Individual) | Rs. 400 |
+| 4 | Mubahisa-e-Fikr | Speech Competition | Solo (Individual) | Rs. 400 |
 | 5 | Nigah-e-Shaheen | Reel / Documentary | Solo (Individual) | Rs. 350 |
 
 Module content, duration, judging criteria and rules are defined in **`assets/js/main.js`** under the `modules` array and are based on the supplied *MODULES-DETAIL.pdf* (pages 1–8).
