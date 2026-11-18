@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T14:00:00+05:00' };
+  const config = window.IQBAL_CONFIG || { formLinks: {}, deadline: '2026-11-18T17:00:00+05:00' };
 
   // Source: MODULES-DETAIL.pdf, updated per latest event schedule. Prices are in Pakistani rupees.
   const modules = [
